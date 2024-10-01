@@ -19,6 +19,15 @@ router.get('/users', (req, res) => {
     .catch((error) => {res.json({message: error})});
 });
 
+/* Get user by email */
+router.get('/users/email', (req, res) => {
+  const email = req.body.email;
+  userSchema
+    .find({email: email})
+    .then((data) => {res.json(data)})
+    .catch((error) => {res.json({message: error})});
+});
+
 /* Get user */
 router.get('/users/:id', (req, res) => {
   const { id } = req.params;
