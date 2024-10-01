@@ -21,9 +21,9 @@ router.get('/users', (req, res) => {
 
 /* Get user by email */
 router.get('/users/email', (req, res) => {
-  const email = req.body.email;
+  const email = req.query.email;
   userSchema
-    .find({email: email})
+    .find({ email: email })
     .then((data) => {res.json(data)})
     .catch((error) => {res.json({message: error})});
 });
