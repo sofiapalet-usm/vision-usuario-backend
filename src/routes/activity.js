@@ -38,12 +38,13 @@ router.get('/activities/technique', (req, res) => {
 });
 
 
-/* Get activity by userId and Technique */
-router.get('/activities/user/technique', (req, res) => {
-  const userId = req.body.userId;
-  const technique = req.body.technique;
+/* Find one activity */
+router.get('/activities/findone', (req, res) => {
+  const name = req.query.name;
+  const technique = req.query.technique;
+  const userId = req.query.userId;
   activitySchema
-    .find({ userId, technique })
+    .find({ userId, name, technique })
     .then((data) => {res.json(data)})
     .catch((error) => {res.json({message: error})});
 });
