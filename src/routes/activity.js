@@ -20,8 +20,8 @@ router.get('/activities', (req, res) => {
 });
 
 /* Get activity by userId */
-router.get('/activities/user', (req, res) => {
-  const userId = req.body.userId;
+router.get('/activities/user/:userId', (req, res) => {
+  const userId = req.params.userId;
   activitySchema
     .find({ userId: userId })
     .then((data) => {res.json(data)})
@@ -68,6 +68,16 @@ router.put('/activities/:id', (req, res) => {
     .catch((error) => {res.json({message: error})});
 });
 
+/* Delete activity by user */
+router.delete('/activities/user/:userId', (req, res) => {
+  const { userId } = req.params;
+  console.log(userId);
+  activitySchema
+    .deleteMany({ userId: userId })
+    .then((data) => {res.json(data)})
+    .catch((error) => {res.json({message: error})});
+});
+
 /* Delete activity */
 router.delete('/activities/:id', (req, res) => {
   const { id } = req.params;
@@ -76,5 +86,7 @@ router.delete('/activities/:id', (req, res) => {
     .then((data) => {res.json(data)})
     .catch((error) => {res.json({message: error})});
 });
+
+
 
 module.exports = router;
