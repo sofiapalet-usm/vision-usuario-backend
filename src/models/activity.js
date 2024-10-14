@@ -17,6 +17,9 @@ const activitySchema = new mongoose.Schema({
     type: Array,
     required: true
   },
+  activityData: {
+    type: Array
+  }
 });
 
 module.exports = mongoose.model('Activity', activitySchema)

@@ -87,6 +87,4 @@ router.delete('/activities/:id', (req, res) => {
     .catch((error) => {res.json({message: error})});
 });
 
-
-
 module.exports = router;

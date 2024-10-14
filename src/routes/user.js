@@ -21,6 +21,10 @@ router.post('/users', async (req, res) => {
     technique: 'Mapa de Empatía',
     userId: user._id,
     scores: [0,0,0],
+    activityData: [
+      {'interviewQuestions': [false, false, false, false, false]},
+      {'activityDone': [false, false, false, false]}
+    ]
   });
   const activity2 = new activitySchema({
     name: 'Compras escolares',
