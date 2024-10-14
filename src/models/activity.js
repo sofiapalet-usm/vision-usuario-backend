@@ -17,7 +17,11 @@ const activitySchema = new mongoose.Schema({
     type: Array,
     required: true
   },
-  activityData: {
+  activityDone: {
+    type: Array,
+    required: true
+  },
+  interviewQuestions: {
     type: Array
   }
 });

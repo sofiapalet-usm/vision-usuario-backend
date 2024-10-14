@@ -61,9 +61,9 @@ router.get('/activities/:id', (req, res) => {
 /* Update activity */
 router.put('/activities/:id', (req, res) => {
   const { id } = req.params;
-  const { name, technique, userId, scores } = req.body;
+  const { name, technique, userId, scores, interviewQuestions, activityDone } = req.body;
   activitySchema
-    .updateOne({ _id: id }, { $set: {name, technique, userId, scores}})
+    .updateOne({ _id: id }, { $set: {name, technique, userId, scores, interviewQuestions, activityDone} })
     .then((data) => {res.json(data)})
     .catch((error) => {res.json({message: error})});
 });
