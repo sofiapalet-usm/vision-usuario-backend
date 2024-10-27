@@ -20,6 +20,12 @@ const userSchema = new mongoose.Schema({
   coins: {
     type: Number,
     required: true
+  },
+  items: {
+    type: Array
+  },
+  outfit: {
+    type: Array
   }
 });
 
